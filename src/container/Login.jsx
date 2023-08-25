@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import axios from '../utils/axios';
 import { storeToken } from '../utils/misc';
+import PasswordInput from '../components/common/PasswordInput';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -49,16 +50,7 @@ export default function Login() {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </Form.Group>
+          <PasswordInput value={password} onChange={setPassword} />
           <Button variant="primary" type="submit" disabled={loading}>
             Submit
           </Button>

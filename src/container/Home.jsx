@@ -23,7 +23,7 @@ export default function Home() {
       setUserList(res.data.user);
       setLoading(false);
     } catch (err) {
-      if (err.response.status === 401) {
+      if (err?.response?.status === 401) {
         handleLogout();
       }
       setErr(err?.response?.data?.message || 'Something went wrong');
