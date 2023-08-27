@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, []);
-
+  console.log('userList', userList);
   return (
     <div className="container">
       <div className="d-flex justify-content-between align-items-center">
@@ -49,7 +49,7 @@ export default function Home() {
         {err && <p className="text-danger">{err}</p>}
       </div>
       <div className="ps-4 mt-4">
-        {userList.map((val, i) => (
+        {userList?.map((val, i) => (
           <div key={i}>
             <p>{val.email}</p>
           </div>

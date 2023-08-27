@@ -1,0 +1,12 @@
+FROM node:16
+WORKDIR /app
+COPY package*.json yarn.lock ./
+COPY ./ ./
+RUN yarn install
+CMD ["yarn", "start"]
+
+ENV BACKEND_PORT=3050
+ENV FRONTEND_PORT=3000
+ENV BACKEND_API_URL=http://localhost:${BACKEND_PORT}
+ENV REACT_APP_API_URL=${BACKEND_API_URL}/api
+ENV REACT_APP_BASE_URL=${BACKEND_API_URL}/api
